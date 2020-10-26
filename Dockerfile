@@ -1,3 +1,3 @@
-FROM nginx:latest
-LABEL "name"="nginx"
+FROM ubuntu:latest
+LABEL "name"="ubuntu"
 LABEL "version"="1.0"
