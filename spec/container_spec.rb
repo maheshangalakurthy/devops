@@ -17,6 +17,10 @@ describe 'Dockerfile' do
         its(:stdout) { should match('filebeat') }
     end
 
+    describe command('printenv | grep Centos8') do
+        its(:stdout) { should match('Centos8') }
+    end
+
     describe file('/etc/os-release') do
         it { should be_file }
     end
