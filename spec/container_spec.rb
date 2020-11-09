@@ -5,11 +5,12 @@ require "serverspec"
 FILEBEAT_PORT = 8080
 describe 'Dockerfile' do
     before(:all) do
-        image = Docker::Image::build_from_dir('.')
-        @container = image.run()
+        @image = Docker::Image::build_from_dir('.')
+        @image.tag(repo: 'angalakurthymahesh/ubuntu', tag: 'latest')
+        @container = @image.run()
         set :os, family: :redhat
         set :backend, :docker
-        set :docker_image, image.id
+        set :docker_image, @image.id
         set :Docker_container, @container.id
     end
 
