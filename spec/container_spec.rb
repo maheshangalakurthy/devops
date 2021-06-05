@@ -6,7 +6,7 @@ FILEBEAT_PORT = 8080
 describe 'Dockerfile' do
     before(:all) do
         @image = Docker::Image::build_from_dir('.')
-        @image.tag(repo: 'angalakurthymahesh/ubuntu', tag: 'latest')
+        @image.tag(repo: 'angalakurthymahesh/centos', tag: 'latest')
         @container = @image.run()
         set :os, family: :redhat
         set :backend, :docker
